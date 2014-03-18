@@ -1,4 +1,4 @@
-Species,Max Height (m),Seed mass (mg),SLA (m2 kg-1),Wood Density (g cm-3)
+species,maxheight,seedmass,SLA,WD
 ?Muehlenbeckia gracillima,NA,NA,NA,NA
 Abrophyllum ornans,8,0.05,11.06,0.601603758
 Acacia boormanii,4,13.26,NA,0.503041879

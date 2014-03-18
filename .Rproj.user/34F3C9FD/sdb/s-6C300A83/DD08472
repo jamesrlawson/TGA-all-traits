@@ -1,0 +1,22 @@
+{
+    "contents" : "",
+    "created" : 1395124373483.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "DD08472",
+    "lastKnownWriteTime" : 13229740524830817,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "caption" : "seedmass.canopy",
+        "contentUrl" : "content?title=seedmass.canopy&file=3b46b3315c2b48f8b4ed0e35db2039a9.htm",
+        "displayedObservations" : 22,
+        "displayedVariables" : 10,
+        "totalObservations" : 22,
+        "variables" : 10
+    },
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}

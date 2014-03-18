@@ -1,0 +1,17 @@
+{
+    "contents" : "# find trait values\n\ntraitsbylayer <- function(trait, layer) {\n  \n  # get indexes for matches which return TRUE\n  traitbylayer <- match(trait$species, layer$species) \n  \n  # subset by matches \n  traitbylayer <- layer[na.omit(traitbylayer), ] \n  \n  traitbylayer <- merge(traitbylayer, trait, by.x = \"species\", by.y = \"species\")\n\n}\n\nrelabund <- function(traitlayer, trait) {\n  \n  total <- as.data.frame(cbind(totalabundances$plotID, totalabundances$trait))\n  colnames(total) <- c(\"plotID\", \"sumAbundance\")\n  df <- merge(traitlayer, total)\n  \n  for(i in 1:nrow(df)) {\n    \n    relabundance <- df$avgcover[i] / df$sumAbundance[i]\n    \n    df$relabuncance <- relabundance\n    \n  }\n  \n  return(df)\n}\n\n\n\n\n",
+    "created" : 1395116495671.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3126418474",
+    "id" : "1687C090",
+    "lastKnownWriteTime" : 1395125791,
+    "path" : "C:/Users/JLawson/Desktop/stuff/data/analysis/R/TGAall2/scripts/functions.R",
+    "project_path" : "scripts/functions.R",
+    "properties" : {
+        "tempName" : "Untitled2"
+    },
+    "source_on_save" : true,
+    "type" : "r_source"
+}

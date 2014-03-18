@@ -1,0 +1,22 @@
+{
+    "contents" : "",
+    "created" : 1395124110766.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "90CD02CA",
+    "lastKnownWriteTime" : 27303570963497028,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "caption" : "totalabundances",
+        "contentUrl" : "content?title=totalabundances&file=e39fbc78e0f94fd5a50b304bceca98ae.htm",
+        "displayedObservations" : 15,
+        "displayedVariables" : 21,
+        "totalObservations" : 15,
+        "variables" : 21
+    },
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}
