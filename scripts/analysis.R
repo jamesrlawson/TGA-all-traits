@@ -25,12 +25,23 @@ WD <- na.omit(
               "WD" = alltraits[5]))
 
 # remove observations that average less than 1% cover
-
 percentcover <- subset(percentcover, avgcover > 1)
 
 # generate df with total % cover (across all strata) of species at each plot
+plotsums <- ddply(percentcover, .(plotID, species), summarise, speciescover = sum(avgcover))
 
-plotsums <- ddply(percentcover, .(plotID, species), summarise, totalcover = sum(avgcover))
+# find species in % cover list associated with trait values 
+maxheight.cover <- findtraitvals(plotsums, maxheight)
+seedmass.cover <- findtraitvals(plotsums, seedmass)
+SLA.cover <- findtraitvals(plotsums, SLA)
+WD.cover <- findtraitvals(plotsums, WD)
 
-blah <- findtraitvals(percentcover, SLA)
+# find total cover at each plot for traits
+
+maxheight.totalcover <- ddply(maxheight.cover, .(plotID), summarise, totalcover = sum(speciescover))
+
+# add total cover into plotsums df
+maxheight.cover <- merge(maxheight.cover, maxheight.totalcover, by.x = "plotID", by.y = "plotID")
+
+# find relative abundance
 
