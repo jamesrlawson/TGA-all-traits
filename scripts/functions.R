@@ -1,33 +1,45 @@
-# find trait values
 
-traitsbylayer <- function(trait, layer) {
+# find species in % cover list associated with trait values
+
+findtraitvals <- function(plotsums, trait) {
   
   # get indexes for matches which return TRUE
-  traitbylayer <- match(trait$species, layer$species) 
+  x <- match(trait$species, plotsums$species) 
   
   # subset by matches 
-  traitbylayer <- layer[na.omit(traitbylayer), ] 
+  x <- plotsums[na.omit(x), ] 
   
-  traitbylayer <- merge(traitbylayer, trait, by.x = "species", by.y = "species")
-
+  x <- merge(x, trait, by.x = "species", by.y = "species")
+  
 }
 
-relabund <- function(traitlayer, trait) {
+
+
+
+
+
+
+
+
+
+#relabund <- function(traitlayer, trait) {
   
-  total <- as.data.frame(cbind(totalabundances$plotID, totalabundances$trait))
-  colnames(total) <- c("plotID", "sumAbundance")
-  df <- merge(traitlayer, total)
+#  total <- as.data.frame(cbind(totalabundances$plotID, totalabundances$trait))
+#  colnames(total) <- c("plotID", "sumAbundance")
+#  df <- merge(traitlayer, total)
   
-  for(i in 1:nrow(df)) {
-    
-    relabundance <- df$avgcover[i] / df$sumAbundance[i]
-    
-    df$relabuncance <- relabundance
-    
-  }
+#  blah <- ddply(traitlayer, .(plotID, species), summarise, total = sum(avgcover))
   
-  return(df)
-}
+#  for(i in 1:nrow(df)) {
+    
+#    relabundance <- df$avgcover[i] / df$sumAbundance[i]
+    
+#    df$relabuncance <- relabundance
+    
+#  }
+  
+#  return(df)
+#}
 
 
 

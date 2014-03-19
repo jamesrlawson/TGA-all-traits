@@ -1,12 +1,12 @@
 {
-    "contents" : "# find trait values\n\ntraitsbylayer <- function(trait, layer) {\n  \n  # get indexes for matches which return TRUE\n  traitbylayer <- match(trait$species, layer$species) \n  \n  # subset by matches \n  traitbylayer <- layer[na.omit(traitbylayer), ] \n  \n  traitbylayer <- merge(traitbylayer, trait, by.x = \"species\", by.y = \"species\")\n\n}\n\nrelabund <- function(traitlayer, trait) {\n  \n  total <- as.data.frame(cbind(totalabundances$plotID, totalabundances$trait))\n  colnames(total) <- c(\"plotID\", \"sumAbundance\")\n  df <- merge(traitlayer, total)\n  \n  for(i in 1:nrow(df)) {\n    \n    relabundance <- df$avgcover[i] / df$sumAbundance[i]\n    \n    df$relabuncance <- relabundance\n    \n  }\n  \n  return(df)\n}\n\n\n\n\n",
+    "contents" : "\n# find species in % cover list associated with trait values\n\nfindtraitvals <- function(plotsums, trait) {\n  \n  # get indexes for matches which return TRUE\n  x <- match(trait$species, plotsums$species) \n  \n  # subset by matches \n  x <- plotsums[na.omit(x), ] \n  \n  x <- merge(x, trait, by.x = \"species\", by.y = \"species\")\n  \n}\n\n\n\n\n\n\n\n\n\n\n#relabund <- function(traitlayer, trait) {\n  \n#  total <- as.data.frame(cbind(totalabundances$plotID, totalabundances$trait))\n#  colnames(total) <- c(\"plotID\", \"sumAbundance\")\n#  df <- merge(traitlayer, total)\n  \n#  blah <- ddply(traitlayer, .(plotID, species), summarise, total = sum(avgcover))\n  \n#  for(i in 1:nrow(df)) {\n    \n#    relabundance <- df$avgcover[i] / df$sumAbundance[i]\n    \n#    df$relabuncance <- relabundance\n    \n#  }\n  \n#  return(df)\n#}\n\n\n\n\n",
     "created" : 1395116495671.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "3126418474",
+    "hash" : "3010271400",
     "id" : "1687C090",
-    "lastKnownWriteTime" : 1395125791,
+    "lastKnownWriteTime" : 1395204415,
     "path" : "C:/Users/JLawson/Desktop/stuff/data/analysis/R/TGAall2/scripts/functions.R",
     "project_path" : "scripts/functions.R",
     "properties" : {
