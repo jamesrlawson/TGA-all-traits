@@ -39,9 +39,24 @@ WD.cover <- findtraitvals(plotsums, WD)
 # find total cover at each plot for traits
 
 maxheight.totalcover <- ddply(maxheight.cover, .(plotID), summarise, totalcover = sum(speciescover))
+seedmass.totalcover <- ddply(seedmass.cover, .(plotID), summarise, totalcover = sum(speciescover))
+SLA.totalcover <- ddply(SLA.cover, .(plotID), summarise, totalcover = sum(speciescover))
+WD.totalcover <- ddply(WD.cover, .(plotID), summarise, totalcover = sum(speciescover))
 
-# add total cover into plotsums df
+# add total cover into cover dfs
 maxheight.cover <- merge(maxheight.cover, maxheight.totalcover, by.x = "plotID", by.y = "plotID")
+seedmass.cover <- merge(seedmass.cover, seedmass.totalcover, by.x = "plotID", by.y = "plotID")
+SLA.cover <- merge(SLA.cover, SLA.totalcover, by.x = "plotID", by.y = "plotID")
+WD.cover <- merge(WD.cover, WD.totalcover, by.x = "plotID", by.y = "plotID")
 
-# find relative abundance
 
+# calculate and add relative abundance
+
+maxheight.cover <- relabund(maxheight.cover)
+seedmass.cover <- relabund(seedmass.cover)
+SLA.cover <- relabund(SLA.cover)
+WD.cover <- relabund(WD.cover)
+
+# rejig for insertion into TGA script
+
+rejig

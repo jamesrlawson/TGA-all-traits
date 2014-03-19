@@ -14,11 +14,19 @@ findtraitvals <- function(plotsums, trait) {
 }
 
 
+relabund <- function(df) {
+                              
+                relcover <- df$speciescover / df$totalcover 
+                cbind(df, "relcover" = relcover)
+}
+  
+output <- function(df, filename) {
+  
+  x <- cbind(df[1],df[2],df[6],df[4])
+  
+  write(x, file="blah.txt", "", sep ="\t")
 
-
-
-
-
+}
 
 
 
