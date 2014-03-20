@@ -4,13 +4,24 @@
 findtraitvals <- function(plotsums, trait) {
   
   # get indexes for matches which return TRUE
-  x <- match(trait$species, plotsums$species) 
   
+  y <- data.frame()
+  
+  for(i in 1:nrow(plotsums)) {
+    
+    species <- as.data.frame(plotsums$species)
+    colnames(species) <- c("species")
+    x <- species[i,]
+    x <- grep(x, plotsums$species, fixed=TRUE)
+    x <- plotsums[x,]
+    x <- merge(x, trait, by.x = "species", by.y = "species")
+    
+    y <- rbind(y,x)
+    
+  }
   # subset by matches 
-  x <- plotsums[na.omit(x), ] 
-  
-  x <- merge(x, trait, by.x = "species", by.y = "species")
-  
+  #x <- plotsums[na.omit(x), ] 
+    return(y)
 }
 
 
