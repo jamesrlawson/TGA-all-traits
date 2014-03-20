@@ -22,7 +22,7 @@ relabund <- function(df) {
   
 
 
-output <- function(df, filename) {
+output <- function(df, trait) {
   
   dfname <- names(df[4])  
   
@@ -30,7 +30,13 @@ output <- function(df, filename) {
   
   colnames(x)[3] <- "abundance"
   
+  y <- findtraitvals(plotsums, trait)
+  y$plotID <- NULL
+  y$speciescover <- NULL
+  
   write.table(x, file=sprintf("output/%s.txt", dfname), sep ="\t", row.names=FALSE)
+  write.table(y, file=sprintf("output/%s_sppmeans.txt", dfname), sep ="\t", row.names=FALSE)
+  
 
 }
 

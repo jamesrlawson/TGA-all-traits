@@ -1,0 +1,108 @@
+"species"	"SLA"
+"Abrophyllum ornans"	11.06
+"Acacia falciformis"	6.04
+"Acacia floribunda"	9.88
+"Acacia implexa"	7.78
+"Acacia leiocalyx subsp. leiocalyx"	9.86
+"Acacia mearnsii"	9.74
+"Acacia melanoxylon"	8.33
+"Acacia pravissima"	9.34
+"Acaena novae-zelandiae"	17.7
+"Acmena smithii"	11.77
+"Adiantum aethiopicum"	61.42
+"Adiantum hispidulum"	25.96
+"Alphitonia excelsa"	9.06
+"Anagallis arvensis"	22.48
+"Angophora subvelutina"	8.38
+"Asplenium flabellifolium"	16.81
+"Astroloma humifusum"	10.49
+"Backhousia myrtifolia"	11.97
+"Bedfordia arborescens"	14.26
+"Beyeria viscosa"	21.51
+"Bidens pilosa"	62.12
+"Bidens subalternans"	38.89
+"Blechnum nudum"	20.83
+"Callistemon subulatus"	5.51
+"Calochlaena dubia"	23.75
+"Carex appressa"	14.57
+"Carex longebrachiata"	15.52
+"Carex polyantha"	17.08
+"Carex sp. (Mann)"	8.19
+"Cassinia aculeata"	13.8
+"Cassinia trinerva"	20.63
+"Casuarina cunninghamiana"	1.41
+"Casuarina glauca"	4.69
+"Centella asiatica"	47.03
+"Ceratopetalum apetalum"	12.07
+"Commelina cyanea"	54.11
+"Commersonia fraseri"	23.49
+"Conyza parva"	22.75
+"Coprosma quadrifida"	34.41
+"Cryptocarya glaucescens"	10.35
+"Dichondra repens"	32.64
+"Dodonaea viscosa subsp. cuneata"	12.83
+"Doodia aspera"	10.7
+"Doryphora sassafras"	11.01
+"Duboisia myoporoides"	22.07
+"Ehrharta erecta"	11.96
+"Entolasia stricta"	36.64
+"Eucalyptus amplifolia"	4.9
+"Eucalyptus camphora subsp. humeana"	8.6
+"Eucalyptus cypellocarpa"	4.39
+"Eucalyptus elata"	6.41
+"Eucalyptus radiata"	10.3
+"Eucalyptus resinifera"	6.417501671
+"Eucalyptus rubida"	5.11
+"Eucalyptus stellulata"	8.05
+"Eucalyptus tereticornis"	6.55
+"Eucalyptus viminalis"	6.89
+"Eustrephus latifolius"	22.04
+"Glochidion ferdinandi var. ferdinandi"	12.84
+"Grevillea robusta"	5.02
+"Guioa semiglauca"	13.21
+"Gymnostachys anceps"	6.98
+"Hovea asperifolia subsp. asperifolia"	9.82
+"Imperata cylindrica"	16.11
+"Lepidosperma laterale"	7.64
+"Leptospermum brevipes"	9.02
+"Ligustrum sinense"	10.46
+"Lomandra longifolia"	12.89
+"Lomatia myricoides"	10.32
+"Lophostemon suaveolens"	7.3
+"Melaleuca quinquenervia"	7.96
+"Melicytus dentatus"	16.64
+"Microlaena stipoides"	36.27
+"Notelaea longifolia"	8.5
+"Notelaea microcarpa var. microcarpa"	6.18
+"Notelaea microcarpa var. velutina"	6.02
+"Oplismenus aemulus"	56.16
+"Oplismenus imbecillis"	63.27
+"Pennisetum clandestinum"	30.46
+"Pittosporum spinescens"	18.44
+"Platylobium formosum subsp. formosum"	14.49
+"Poa labillardierei var. labillardierei"	13.59
+"Poa meionectes"	10.72
+"Poa sieberiana"	12.62
+"Pomaderris aspera"	13.42
+"Prostanthera lasianthos"	13.38
+"Prunella vulgaris"	26.48
+"Pteridium esculentum"	9.64
+"Pultenaea juniperina"	6.45
+"Ripogonum album"	11.94
+"Rubus fruticosus agg."	22.17
+"Rubus parvifolius"	23.11
+"Sida rhombifolia"	23.59
+"Solanum americanum"	15
+"Solanum mauritianum"	20.13
+"Stellaria flaccida"	48.42
+"Stephania japonica"	26.1
+"Syzygium oleosum"	10.07
+"Tagetes minuta"	50.14
+"Tradescantia fluminensis"	46.41
+"Trema tomentosa var. aspera"	47.9
+"Tristaniopsis laurina"	7.48
+"Trophis scandens"	12.14
+"Urtica incisa"	40.55
+"Viola hederacea"	23.18
+"Waterhousea floribunda"	13.58
+"Xanthium occidentale"	48.65
