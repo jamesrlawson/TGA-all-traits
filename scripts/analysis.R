@@ -1,5 +1,6 @@
 source("scripts/functions.R")
 options(stringsAsFactors = FALSE)
+library(plyr)
 
 # load in data
 
@@ -59,4 +60,14 @@ WD.cover <- relabund(WD.cover)
 
 # rejig for insertion into TGA script
 
-rejig
+output(maxheight.cover)
+output(seedmass.cover)
+output(SLA.cover)
+output(WD.cover)
+
+# what are the most common species? (not necessary for this analysis but I wanted to know and the data was loaded...)
+commonspp <- ddply(percentcover, .(plotID), summarise, uniquespp. = unique(species))
+commonspp <- ddply(commonspp, .(uniquespp.), transform, idcount=length(uniquespp.)) # don't know what transform does here but it works..
+commonspp <- arrange(commonspp, desc(idcount))
+write.csv(commonspp, file="C:/Users/JLawson/Desktop/stuff/glasshouse/commonspp.csv")
+View(commonspp)

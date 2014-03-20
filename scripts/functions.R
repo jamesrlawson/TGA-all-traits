@@ -20,34 +20,21 @@ relabund <- function(df) {
                 cbind(df, "relcover" = relcover)
 }
   
+
+
 output <- function(df, filename) {
   
-  x <- cbind(df[1],df[2],df[6],df[4])
+  dfname <- names(df[4])  
   
-  write(x, file="blah.txt", "", sep ="\t")
+  x <- cbind(df[1],df[2],df[6],df[4])  
+  
+  colnames(x)[3] <- "abundance"
+  
+  write.table(x, file=sprintf("output/%s.txt", dfname), sep ="\t", row.names=FALSE)
 
 }
 
 
-
-#relabund <- function(traitlayer, trait) {
-  
-#  total <- as.data.frame(cbind(totalabundances$plotID, totalabundances$trait))
-#  colnames(total) <- c("plotID", "sumAbundance")
-#  df <- merge(traitlayer, total)
-  
-#  blah <- ddply(traitlayer, .(plotID, species), summarise, total = sum(avgcover))
-  
-#  for(i in 1:nrow(df)) {
-    
-#    relabundance <- df$avgcover[i] / df$sumAbundance[i]
-    
-#    df$relabuncance <- relabundance
-    
-#  }
-  
-#  return(df)
-#}
 
 
 
