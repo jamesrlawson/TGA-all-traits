@@ -7,19 +7,19 @@ source("scripts/tga1.R")
 ## Enter data ##
 # Set this to true if species_plot data file also has in situ trait data, false if species means will be read in separately.
 
-InSituTraitData = FALSE
+InSituTraitData = TRUE
 
 if (InSituTraitData) {
   # ** working directory should be set to location of data files **
   # Enter name of datafile below
   datafile = 'output/maxheight.txt' # USER: enter datafile
-  trt.col = NA #USER: column of data file with desired trait
+  trt.col = 4 #USER: column of data file with desired trait
   D = load.data(datafile,trt.col)
 } else {
   #if trt.col = NA then no insitu trait data in available - expand trait data from species means:
   #	meansfile is name of file with species means, species names (exactly matching data file) should be in first column. Trait means should be in desired units and transformation
   # 	colnum is column number with means for appropriate trait
-  
+
   meansfile = 'output/maxheight_sppmeans.txt'
   colnum = 2
   D=expand.spp.means(D,meansfile,colnum)
@@ -129,7 +129,7 @@ B1 = bootstrapD(D,T,reps=5,stratified=TRUE,showplot=FALSE,	showreps=TRUE,calc.sl
 
 # Null models of plot-species-trait associations
 library(moments)
-N1 = nullD(D,S,T,reps=2,
+N1 = nullD(D,S,T,reps=100,
            randomize='plot',showplot=FALSE,calc.slopes=TRUE,
            use.spmeans=use.spmeans,showreps=TRUE)
 
