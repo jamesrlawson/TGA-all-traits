@@ -28,7 +28,8 @@ output <- function(df, trait) {
   
   x <- cbind(df[1],df[2],df[6],df[4])  
   
-  colnames(x)[3] <- "abundance"
+  colnames(x)[1] <- "plot"
+  colnames(x)[3] <- "abund"
   
   y <- findtraitvals(plotsums, trait)
   y$plotID <- NULL

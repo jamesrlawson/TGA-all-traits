@@ -1,4 +1,4 @@
-"plotID"	"species"	"abundance"	"seedmass"
+"plot"	"species"	"abund"	"seedmass"
 1	"Abrophyllum ornans"	0.111975116640747	0.05
 1	"Carex longebrachiata"	0.0124416796267496	1.38
 1	"Guioa semiglauca"	0.00933125972006221	41

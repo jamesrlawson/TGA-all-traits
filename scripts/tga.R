@@ -40,7 +40,7 @@ expand.spp.means.internal <- function(x,wtd) {
                as.factor(x$species[!is.na(x[,4])]),sum)
   sppmeans = wtd.sum/wts
   
-  sppmeans = tapply(x[,4],x[,1],mean,na.rm=TRUE)
+  #sppmeans = tapply(x[,4],x[,1],mean,na.rm=TRUE)
   spp.missing = sum(is.na(sppmeans))
   if (spp.missing>0) {
     print(paste(spp.missing,' spp has/have no trait data; function aborted'))
@@ -274,7 +274,7 @@ calc.spec.attr <- function(T,minsp=1,
                'min.tp','max.tp','min.tval','max.tval',
                'low.bound','hi.bound')
   return(S)
-  #to obtain results of r,
+  #to obtain results of standardized major axis regression,
   #use alternative outputs below, and comment out those above
   #S <- data.frame(rownames(sp.N),sp.N,sp.abund,sp.T,
   #	sp.betaT,sp.alphaT,sp.R,ncases,b,b.se,b.p,u,u.se,u.p,
@@ -298,7 +298,7 @@ calc.spec.attr <- function(T,minsp=1,
 #  values from S matrix based on normal vs. jackknife analysis
 #comparing results of jackknife to full analysis.
 calc.spec.attr.jackknife = function(D,T,S,weighted,
-                                    calc.slopes=TRUE,use.spmeans=TRUE,compare=TRUE) {
+                                    calc.slopes=TRUE,use.spmeans=TRUE,compare=FALSE) {
   spp.list = unique(D$species)
   Nsp = length(spp.list)
   Sj = S
@@ -578,13 +578,7 @@ nullD = function(D,S,T,reps=999,
             diff(range(S$betaT,na.rm=TRUE)),
             diff(range(S$alphaT,na.rm=TRUE)),
             diff(range(S$Rs,na.rm=TRUE)),
-            diff(range(T$tp,na.rm=TRUE)),
-            median(S$betaT, na.rm=TRUE),
-            median(S$alphaT, na.rm=TRUE),
-            kurtosis(S$betaT, na.rm=TRUE),
-            kurtosis(S$alphaT, na.rm=TRUE),
-            skewness(S$betaT, na.rm=TRUE),
-            skewness(S$alphaT, na.rm=TRUE))
+            diff(range(T$tp,na.rm=TRUE)))
   
   #null: assign traits at random to plots
   for (i in 1:reps) {
@@ -615,30 +609,17 @@ nullD = function(D,S,T,reps=999,
     beta.range = diff(range(Snull$betaT,na.rm=TRUE))
     alpha.range = diff(range(Snull$alphaT,na.rm=TRUE))
     Rs.range = diff(range(Snull$Rs,na.rm=TRUE))
-    betaT.median = median(Snull$betaT, na.rm=TRUE)
-    alphaT.median = median(Snull$alphaT, na.rm=TRUE)
-    betaT.kurtosis = kurtosis(Snull$betaT, na.rm=TRUE)
-    alphaT.kurtosis = kurtosis(Snull$alphaT, na.rm=TRUE)
-    betaT.skewness = skewness(Snull$betaT, na.rm=TRUE)
-    alphaT.skewness = skewness(Snull$alphaT, na.rm=TRUE)
-    
-    speciesbetaT.null = rbind(Snull$species, Snull$betaT)
-    speciesalphaT.null = rbind(Snull$species, Snull$alphaT)
-    
-    
-    
     stats = rbind(stats,
-                  c(Rab,beta.range,alpha.range,Rs.range,tp.range,betaT.median,alphaT.median,betaT.kurtosis,alphaT.kurtosis,betaT.skewness,alphaT.skewness))
+                  c(Rab,beta.range,alpha.range,Rs.range,tp.range))
     if (showplot) plotTS(Snull,Tnull,weighted)
   }	
   null.res = summary.BSstats(ts.null,beta.null,alpha.null,
                              Rs.null,bs.null,us.null)
-  
   names(null.res)[1]='nullN'
   stats = data.frame(stats)
   names(stats) = c('Rbeta-alpha','beta.range','alpha.range',
-                   'Rs.range','tp.range','betaT.median','alphaT.median','betaT.kurtosis','alphaT.kurtosis','betaT.skewness','alphaT.skewness')
-  return(list(c(randomize,reps),null.res,stats,beta.null,alpha.null))
+                   'Rs.range','tp.range')
+  return(list(c(randomize,reps),null.res,stats))
 }
 
 #null2D conducts null models for two traits to test the

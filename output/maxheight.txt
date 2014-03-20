@@ -1,4 +1,4 @@
-"plotID"	"species"	"abundance"	"maxheight"
+"plot"	"species"	"abund"	"maxheight"
 1	"Abrophyllum ornans"	0.0949868073878628	8
 1	"Pittosporum spinescens"	0.0118733509234829	8
 1	"Carex longebrachiata"	0.0105540897097625	0.8

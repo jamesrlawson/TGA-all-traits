@@ -2,17 +2,17 @@
 
 #load 'tg-functions.R'; check wdir is set to location of file
 # ** set path to match file location on your computer **
-source("TGA all traits/scripts/tga.R")
+source("scripts/tga1.R")
 
 ## Enter data ##
 # Set this to true if species_plot data file also has in situ trait data, false if species means will be read in separately.
 
-InSituTraitData = TRUE
+InSituTraitData = FALSE
 
 if (InSituTraitData) {
   # ** working directory should be set to location of data files **
   # Enter name of datafile below
-  datafile = 'TGA all traits/data/alltraits1.txt' # USER: enter datafile
+  datafile = 'output/maxheight.txt' # USER: enter datafile
   trt.col = NA #USER: column of data file with desired trait
   D = load.data(datafile,trt.col)
 } else {
@@ -20,8 +20,8 @@ if (InSituTraitData) {
   #	meansfile is name of file with species means, species names (exactly matching data file) should be in first column. Trait means should be in desired units and transformation
   # 	colnum is column number with means for appropriate trait
   
-  meansfile = 'TGA all traits/data/seedmassmeans.txt'
-  colnum = 4
+  meansfile = 'output/maxheight_sppmeans.txt'
+  colnum = 2
   D=expand.spp.means(D,meansfile,colnum)
   # END expand species means
 }
@@ -47,8 +47,8 @@ par(mfrow=c(1,1))
 
 # set log and weighted options
 trtname = names(D)[ncol(D)]
-logt = FALSE #USER: log transform trait data?
-sqrt.t = TRUE #USER: square root transform trait data?
+logt = TRUE #USER: log transform trait data?
+sqrt.t = FALSE #USER: square root transform trait data?
 weighted=TRUE #USER: use abundance weighted analysis?
 dname = paste(trtname,'.W-',weighted,sep='')
 
@@ -61,7 +61,7 @@ if (logt) {
     D[,5] = log10(D[,5])
     names(D)[5] = paste('log_',names(D)[5],sep='')
   }
-  dname = paste(trtname,'.log','.W-',weighted,sep='')
+  dname = paste('output','/',trtname,'.sqrt','.W-',weighted,sep='')
 }
 
 if (sqrt.t) {
@@ -71,9 +71,11 @@ if (sqrt.t) {
     D[,5] = sqrt(D[,5])
     names(D)[5] = paste('sqrt_',names(D)[5],sep='')
   }
-  dname = paste(trtname,'.sqrt','.W-',weighted,sep='')
+  
+  dname = paste('output','/',trtname,'.sqrt','.W-',weighted,sep='')
 }
 print(dname)
+
 ## End enter data ##
 
 
@@ -126,6 +128,7 @@ Sj = calc.spec.attr.jackknife(D,T,Stmp,weighted,compare=TRUE,	calc.slopes=TRUE,u
 B1 = bootstrapD(D,T,reps=5,stratified=TRUE,showplot=FALSE,	showreps=TRUE,calc.slopes=TRUE,use.spmeans=use.spmeans)
 
 # Null models of plot-species-trait associations
+library(moments)
 N1 = nullD(D,S,T,reps=2,
            randomize='plot',showplot=FALSE,calc.slopes=TRUE,
            use.spmeans=use.spmeans,showreps=TRUE)

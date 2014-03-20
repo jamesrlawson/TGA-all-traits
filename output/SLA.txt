@@ -1,4 +1,4 @@
-"plotID"	"species"	"abundance"	"SLA"
+"plot"	"species"	"abund"	"SLA"
 1	"Abrophyllum ornans"	0.0938722294654498	11.06
 1	"Pittosporum spinescens"	0.0117340286831812	18.44
 1	"Lomandra longifolia"	0.0260756192959583	12.89
