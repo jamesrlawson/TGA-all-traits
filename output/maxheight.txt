@@ -3,111 +3,112 @@
 1	"Pittosporum spinescens"	0.0118733509234829	8
 1	"Carex longebrachiata"	0.0105540897097625	0.8
 1	"Cryptocarya glaucescens"	0.0448548812664908	35
-1	"Lomandra longifolia"	0.0263852242744063	1
+1	"Tristaniopsis laurina"	0.112137203166227	30
 1	"Doodia aspera"	0.0633245382585752	0.5
 1	"Doryphora sassafras"	0.0646437994722955	35
-1	"Adiantum hispidulum"	0.0079155672823219	0.7
+1	"Lomandra longifolia"	0.0263852242744063	1
 1	"Acmena smithii"	0.378627968337731	5
 1	"Gymnostachys anceps"	0.0079155672823219	1.5
-1	"Tristaniopsis laurina"	0.112137203166227	30
+1	"Adiantum hispidulum"	0.0079155672823219	0.7
+1	"Ceratopetalum apetalum"	0.0765171503957784	25
 1	"Waterhousea floribunda"	0.0923482849604222	30
 1	"Guioa semiglauca"	0.0079155672823219	6
-1	"Ceratopetalum apetalum"	0.0765171503957784	25
 2	"Adiantum aethiopicum"	0.138339920948617	0.5
-2	"Carex polyantha"	0.592885375494071	0.8
 2	"Coprosma quadrifida"	0.205533596837945	4
+2	"Carex polyantha"	0.592885375494071	0.8
 2	"Blechnum nudum"	0.0632411067193676	1
+3	"Acacia melanoxylon"	0.0419847328244275	30
 3	"Anagallis arvensis"	0.016793893129771	0.3
+3	"Pomaderris aspera"	0.193893129770992	4
 3	"Pteridium esculentum"	0.099236641221374	1.5
 3	"Leptospermum brevipes"	0.116793893129771	4
-3	"Acacia melanoxylon"	0.0419847328244275	30
-3	"Eucalyptus viminalis"	0.221374045801527	30
-3	"Calochlaena dubia"	0.178625954198473	1.5
-3	"Pomaderris aspera"	0.193893129770992	4
 3	"Poa meionectes"	0.131297709923664	0.7
-4	"Casuarina cunninghamiana"	0.338186942226397	35
+3	"Calochlaena dubia"	0.178625954198473	1.5
+3	"Eucalyptus viminalis"	0.221374045801527	30
+4	"Acacia floribunda"	0.135274776890559	8
 4	"Eucalyptus cypellocarpa"	0.0751526538280883	50
 4	"Microlaena stipoides"	0.0695162047909817	0.7
-4	"Cassinia trinerva"	0.0187881634570221	8
-4	"Acacia floribunda"	0.135274776890559	8
-4	"Melicytus dentatus"	0.11507750117426	4
-4	"Oplismenus aemulus"	0.105213715359324	0.3
-4	"Pellaea falcata"	0.0845467355565993	1.1
-4	"Dichondra repens"	0.0159699389384688	0.2
-4	"Lomatia myricoides"	0.017848755284171	5
-4	"Asplenium flabellifolium"	0.0131517144199155	0.2
 4	"Stellaria flaccida"	0.0112728980742132	0.2
-5	"Austrostipa ramosissima"	0.0600600600600601	2.5
+4	"Asplenium flabellifolium"	0.0131517144199155	0.2
+4	"Oplismenus aemulus"	0.105213715359324	0.3
+4	"Dichondra repens"	0.0159699389384688	0.2
+4	"Cassinia trinerva"	0.0187881634570221	8
+4	"Casuarina cunninghamiana"	0.338186942226397	35
+4	"Melicytus dentatus"	0.11507750117426	4
+4	"Lomatia myricoides"	0.017848755284171	5
+4	"Pellaea falcata"	0.0845467355565993	1.1
 5	"Entolasia stricta"	0.042042042042042	0.8
-5	"Backhousia myrtifolia"	0.687687687687688	30
+5	"Austrostipa ramosissima"	0.0600600600600601	2.5
 5	"Eucalyptus elata"	0.102102102102102	30
 5	"Lepidosperma laterale"	0.108108108108108	1
+5	"Backhousia myrtifolia"	0.687687687687688	30
 6	"Cryptandra spinescens"	0.189189189189189	1
 6	"Callistemon subulatus"	0.288288288288288	1
-6	"Acacia mearnsii"	0.252252252252252	10
 6	"Astroloma humifusum"	0.27027027027027	0.5
+6	"Acacia mearnsii"	0.252252252252252	10
 7	"Acacia boormanii"	0.195266272189349	4
-7	"Rubus fruticosus agg."	0.0177514792899408	3
+7	"Eucalyptus rubida"	0.624260355029586	40
 7	"Beyeria viscosa"	0.0917159763313609	4
 7	"Carex appressa"	0.0355029585798817	1.2
 7	"Ehrharta erecta"	0.0355029585798817	0.6
-7	"Eucalyptus rubida"	0.624260355029586	40
-8	"Acaena novae-zelandiae"	0.0466101694915254	0.3
-8	"Eucalyptus radiata"	0.0423728813559322	50
-8	"Eucalyptus camphora subsp. humeana"	0.805084745762712	20
-8	"Poa labillardierei var. labillardierei"	0.0550847457627119	1.2
-8	"Rubus parvifolius"	0.0254237288135593	0.6
+7	"Rubus fruticosus agg."	0.0177514792899408	3
 8	"Prunella vulgaris"	0.0254237288135593	0.4
-9	"Cassinia aculeata"	0.271493212669683	2.5
-9	"Pultenaea juniperina"	0.321266968325792	3
-9	"Lomatia ilicifolia"	0.0995475113122172	3
-9	"Platylobium formosum subsp. formosum"	0.0633484162895928	2.5
-9	"Bedfordia arborescens"	0.190045248868778	5
-9	"Viola hederacea"	0.0542986425339366	0.2
-10	"Poa sieberiana"	0.147208121827411	1
+8	"Poa labillardierei var. labillardierei"	0.0550847457627119	1.2
+8	"Eucalyptus radiata"	0.0423728813559322	50
+8	"Acaena novae-zelandiae"	0.0466101694915254	0.3
+8	"Eucalyptus camphora subsp. humeana"	0.805084745762712	20
+8	"Rubus parvifolius"	0.0254237288135593	0.6
+9	"Cassinia aculeata"	0.206185567010309	2.5
+9	"Pultenaea juniperina"	0.243986254295533	3
+9	"Platylobium formosum subsp. formosum"	0.0481099656357388	2.5
+9	"Viola hederacea"	0.0412371134020619	0.2
+9	"Lomatia ilicifolia"	0.0756013745704467	3
+9	"Prostanthera lasianthos"	0.240549828178694	6
+9	"Bedfordia arborescens"	0.144329896907216	5
 10	"Eucalyptus stellulata"	0.786802030456853	15
 10	"Lastreopsis decomposita"	0.065989847715736	0.9
+10	"Poa sieberiana"	0.147208121827411	1
+11	"Juncus continuus"	0.0461215932914046	1.2
 11	"Imperata cylindrica"	0.0712788259958071	1.2
-11	"Carex sp. (Mann)"	0.0545073375262055	0.5
-11	"Tagetes minuta"	0.0272536687631027	2
-11	"Xanthium occidentale"	0.113207547169811	2
+11	"Urtica incisa"	0.129979035639413	1
 11	"Commelina cyanea"	0.125786163522013	0.2
-11	"Notelaea microcarpa var. microcarpa"	0.079664570230608	10
+11	"Sida rhombifolia"	0.0335429769392034	1
+11	"Tagetes minuta"	0.0272536687631027	2
 11	"Bidens pilosa"	0.0293501048218029	1
 11	"Bidens subalternans"	0.079664570230608	1.6
-11	"Sida rhombifolia"	0.0335429769392034	1
-11	"Urtica incisa"	0.129979035639413	1
-11	"Juncus continuus"	0.0461215932914046	1.2
+11	"Notelaea microcarpa var. microcarpa"	0.079664570230608	10
+11	"Xanthium occidentale"	0.113207547169811	2
+11	"Carex sp. (Mann)"	0.0545073375262055	0.5
 11	"Eucalyptus amplifolia"	0.209643605870021	30
+12	"Eucalyptus tereticornis"	0.326771653543307	50
 12	"Conyza parva"	0.031496062992126	0.5
 12	"Solanum mauritianum"	0.0531496062992126	4
 12	"Notelaea microcarpa var. velutina"	0.0137795275590551	10
-12	"Solanum americanum"	0.0236220472440945	1.3
 12	"Pennisetum clandestinum"	0.291338582677165	0.9
-12	"Lomandra hystrix"	0.146653543307087	1.3
+12	"Solanum americanum"	0.0236220472440945	1.3
 12	"Angophora subvelutina"	0.0688976377952756	20
-12	"Eucalyptus tereticornis"	0.326771653543307	50
+12	"Lomandra hystrix"	0.146653543307087	1.3
 12	"Ligustrum sinense"	0.0442913385826772	3
-13	"Lophostemon suaveolens"	0.192048929663609	22
-13	"Centella asiatica"	0.0207951070336391	0.2
-13	"Notelaea longifolia"	0.0220183486238532	9
-13	"Alphitonia excelsa"	0.143119266055046	25
-13	"Tree (Sportsmans 57)"	0.073394495412844	30
-13	"Syzygium oleosum"	0.0489296636085627	15
-13	"Lepironia articulata"	0.0140672782874618	2
 13	"Acacia leiocalyx subsp. leiocalyx"	0.0513761467889908	6
-13	"Trema tomentosa var. aspera"	0.0073394495412844	6
-13	"Melaleuca quinquenervia"	0.0685015290519878	15
-13	"Casuarina glauca"	0.126605504587156	20
+13	"Notelaea longifolia"	0.0220183486238532	9
+13	"Centella asiatica"	0.0207951070336391	0.2
 13	"Grevillea robusta"	0.00978593272171254	40
-13	"Oplismenus imbecillis"	0.168807339449541	0.3
+13	"Lophostemon suaveolens"	0.192048929663609	22
+13	"Melaleuca quinquenervia"	0.0685015290519878	15
+13	"Alphitonia excelsa"	0.143119266055046	25
+13	"Lepironia articulata"	0.0140672782874618	2
+13	"Tree (Sportsmans 57)"	0.073394495412844	30
+13	"Trema tomentosa var. aspera"	0.0073394495412844	6
+13	"Casuarina glauca"	0.126605504587156	20
 13	"Duboisia myoporoides"	0.0532110091743119	20
-14	"Acacia implexa"	0.0553064275037369	12
-14	"Hovea asperifolia subsp. asperifolia"	0.201793721973094	3
+13	"Oplismenus imbecillis"	0.168807339449541	0.3
+13	"Syzygium oleosum"	0.0489296636085627	15
 14	"Dodonaea viscosa subsp. cuneata"	0.0523168908819133	8
+14	"Hovea asperifolia subsp. asperifolia"	0.201793721973094	3
+14	"Acacia implexa"	0.0553064275037369	12
 14	"Acacia falciformis"	0.0179372197309417	10
 14	"Acacia pravissima"	0.672645739910314	8
 15	"Tradescantia fluminensis"	0.04296875	0.2
-15	"Glochidion ferdinandi var. ferdinandi"	0.15625	8
 15	"Commersonia fraseri"	0.4296875	8
+15	"Glochidion ferdinandi var. ferdinandi"	0.15625	8
 15	"Eucalyptus resinifera"	0.37109375	45
