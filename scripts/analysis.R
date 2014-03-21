@@ -121,15 +121,15 @@ hydro$plotID <- NULL
   D_Sna_WD <- merge(D_WD, Sna_WD)
   D_Sna_hydro_WD <- merge(D_Sna_WD, hydro)
 
-# make lists with all the betaT and alphaT values
+# make lists with all the betaT and alphaT values (for the sheer hell of it)
 
-betaT <- list()
+betaT.list <- list()
 betaT$betaT_maxheight <- D_Sna_hydro_maxheight$betaT
 betaT$betaT_seedmass <- D_Sna_hydro_seedmass$betaT
 betaT$betaT_SLA <- D_Sna_hydro_SLA$betaT
 betaT$betaT_WD <- D_Sna_hydro_WD$betaT
 
-alphaT <- list()
+alphaT.list <- list()
 alphaT$alphaT_maxheight <- D_Sna_hydro_maxheight$alphaT
 alphaT$alphaT_seedmass <- D_Sna_hydro_seedmass$alphaT
 alphaT$alphaT_SLA <- D_Sna_hydro_SLA$alphaT
@@ -161,3 +161,35 @@ betaTrange <- data.frame(hydroplots$betaTrange_maxheight,
                          hydroplots$Tp_WD)
 
 betaTrange.cor <- cor(betaTrange, method="pearson")
+plot(betaTrange)
+
+hydroplots$alphaTrange_maxheight <- tapply(D_Sna_hydro_maxheight$alphaT, D_Sna_hydro_maxheight$plot, spread)
+hydroplots$alphaTrange_seedmass <- tapply(D_Sna_hydro_seedmass$alphaT, D_Sna_hydro_seedmass$plot, spread)
+hydroplots$alphaTrange_SLA <- tapply(D_Sna_hydro_SLA$alphaT, D_Sna_hydro_SLA$plot, spread)
+hydroplots$alphaTrange_WD <- tapply(D_Sna_hydro_WD$alphaT, D_Sna_hydro_WD$plot, spread)
+
+# what even is alphaT range?!
+
+alphaTrange <- data.frame(hydroplots$alphaTrange_maxheight, 
+                          hydroplots$alphaTrange_seedmass, 
+                          hydroplots$alphaTrange_SLA,
+                          hydroplots$Tp_WD)
+
+alphaTrange.cor <- cor(alphaTrange, method="pearson")
+plot(alphaTrange)
+
+
+########### LETS OUTPUT SOME GRAPHS - BETAT and BETAT ranges along hydro gradients #############
+
+
+# plot.linear requires: df, var, trait, labels. 
+# var is alphaT/betaT/ts/Rs, etc.
+
+labels <- list("metrics" = c("name 1", "name 2", "name3", "name 4", "name 5", "name 6", "name 7", "name 8", "name 9"), 
+               "ylab" = c("abundance weighted mean wood density (g/cm^3)"),
+               #               "title" = c("how about a title"),
+               "catname" = as.factor(c(3,2,2,3,3,2,1,1,1,1,2,2,3,1,3)),
+               #"p.adj" = fitmodels.signif$p.adj)
+
+
+plot.linear(D_Sna_hydro_SLA, D_Sna_hydro_SLA$betaT, SLA)

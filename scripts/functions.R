@@ -62,25 +62,56 @@ spread <- function(x) (diff(range(x)))
 
 
 
-
-
-# add columns to df
-
-function(df,columns,var) {
+plot.linear <- function(df, var, trait, labels) { # var is alphaT/betaT/ts/Rs, etc.
   
-  for(i in 1:nrow(column)) {
+  mainDir <- "C:/Users/JLawson/Desktop/stuff/data/analysis/R/TGAall2"
+  subDir <- deparse(substitute(trait))
+  dir.create(file.path(mainDir,subDir))  
+  
+  for(i in 1:ncol(df)) {
+    hydro <- df[[i]]  
+    hydroname <- as.expression(colnames(df[i]))   
+    fit.linear <- lm(var ~ hydro, data = df)
     
-    name <- names(column)[i]
+  #  padj <- labels$p.adj[i]
+    r2 <- signif(summary(fit.quad)$r.squared, 5)
     
-    cbind(df, name$var)
-}
-}
-
-# compare
-
-compare <- function() {
+    png(sprintf("output/figures/%s/%s_p-%s_r2-%s.png", trait, hydroname, padj, r2), width = 600, height = 500)
+    #on.exit(dev.off())
     
-  D_maxheight <- sprintf("%s_maxheight", dfname)
-
+    p <- qplot(hydro, var, data = df) 
+    p <- p + geom_point(aes(shape = labels$catname), size =3)
+    p <- p + scale_shape_discrete(name = "Hydrological \n class", labels = c("stable winter baseflow", "unpredictable baseflow", "unpredictable intermittent"))
+    p <- p + stat_smooth(method = "lm", formula = y ~ x, se=TRUE, col="black") 
+    p <- p + xlab(hydroname)
+  #  p <- p + ylim(0.45, 0.75)
+    p <- p + ylab(labels$ylab)
+   # p <- p + annotate("text",                    
+   #                   x=max(hydro)/1.5, y=0.5,
+   #                   label=paste("R^2 = ",signif(summary(fit.quad)$r.squared, 5),
+   #                               "\np.adj =",labels$p.adj[i]),
+   #                   size = 4)
+    #    p <- p + ggtitle(labels$title)    
+    p <- p + theme_minimal() # if you want to use a preset theme and then modify it, call it first
+    p <- p + theme(panel.grid.major = element_blank(),
+                   panel.grid.minor = element_blank(),
+                   axis.line = element_line(size=.7, color = "black"),
+                   legend.position = "bottom",
+                   panel.background = element_blank(),      
+                   plot.title = element_text(size=12),
+                   axis.text = element_text(size=12),
+                   text = element_text(size=12))   
+    
+    print(p)
+    dev.off()
+  }
 }
 
+# keeping this for future reference. returns the dataframe D_Sna_hydro_*trait*
+
+gettrait<- function(trait) {
+  
+  traitname <- deparse(substitute(trait))
+  get(sprintf("D_Sna_hydro_%s", traitname))
+  
+}
