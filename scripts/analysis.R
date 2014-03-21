@@ -185,11 +185,8 @@ plot(alphaTrange)
 # plot.linear requires: df, var, trait, labels. 
 # var is alphaT/betaT/ts/Rs, etc.
 
-labels <- list("metrics" = c("name 1", "name 2", "name3", "name 4", "name 5", "name 6", "name 7", "name 8", "name 9"), 
-               "ylab" = c("abundance weighted mean wood density (g/cm^3)"),
-               #               "title" = c("how about a title"),
-               "catname" = as.factor(c(3,2,2,3,3,2,1,1,1,1,2,2,3,1,3)),
-               #"p.adj" = fitmodels.signif$p.adj)
-
+labels <- list("ylab" = c("abundance weighted mean wood density (g/cm^3)"),
+               "catname" = as.factor(c(3,2,2,3,3,2,1,1,1,1,2,2,3,1,3))
+              )
 
 plot.linear(D_Sna_hydro_SLA, D_Sna_hydro_SLA$betaT, SLA)
