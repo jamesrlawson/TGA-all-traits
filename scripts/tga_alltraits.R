@@ -43,11 +43,11 @@ if (sum(is.na(D[,4]))>0) {
 }
 
 #Examine distribution of trait data, and decide whether to transform
-par(mfrow=c(2,2))
-hist(D[,4])
-hist(log10(D[,4]))
-hist(sqrt(D[,4]))
-par(mfrow=c(1,1))
+#par(mfrow=c(2,2))
+#hist(D[,4])
+#hist(log10(D[,4]))
+#hist(sqrt(D[,4]))
+#par(mfrow=c(1,1))
 
 # set log and weighted options
 trtname = names(D)[ncol(D)]
@@ -145,11 +145,11 @@ if (sum(is.na(D[,4]))>0) {
 }
 
 #Examine distribution of trait data, and decide whether to transform
-par(mfrow=c(2,2))
-hist(D[,4])
-hist(log10(D[,4]))
-hist(sqrt(D[,4]))
-par(mfrow=c(1,1))
+#par(mfrow=c(2,2))
+#hist(D[,4])
+#hist(log10(D[,4]))
+#hist(sqrt(D[,4]))
+#par(mfrow=c(1,1))
 
 # set log and weighted options
 trtname = names(D)[ncol(D)]
@@ -247,11 +247,11 @@ if (sum(is.na(D[,4]))>0) {
 }
 
 #Examine distribution of trait data, and decide whether to transform
-par(mfrow=c(2,2))
-hist(D[,4])
-hist(log10(D[,4]))
-hist(sqrt(D[,4]))
-par(mfrow=c(1,1))
+#par(mfrow=c(2,2))
+#hist(D[,4])
+#hist(log10(D[,4]))
+#hist(sqrt(D[,4]))
+#par(mfrow=c(1,1))
 
 # set log and weighted options
 trtname = names(D)[ncol(D)]
@@ -349,11 +349,11 @@ if (sum(is.na(D[,4]))>0) {
 }
 
 #Examine distribution of trait data, and decide whether to transform
-par(mfrow=c(2,2))
-hist(D[,4])
-hist(log10(D[,4]))
-hist(sqrt(D[,4]))
-par(mfrow=c(1,1))
+#par(mfrow=c(2,2))
+#hist(D[,4])
+#hist(log10(D[,4]))
+#hist(sqrt(D[,4]))
+#par(mfrow=c(1,1))
 
 # set log and weighted options
 trtname = names(D)[ncol(D)]

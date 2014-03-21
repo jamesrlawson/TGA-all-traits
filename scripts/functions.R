@@ -3,7 +3,7 @@
 
 findtraitvals <- function(plotsums, trait) {
   
-  # get indexes for matches which return TRUE
+  
   
   y <- data.frame()
   
@@ -12,10 +12,14 @@ findtraitvals <- function(plotsums, trait) {
     species <- as.data.frame(plotsums$species)
     colnames(species) <- c("species")
     x <- species[i,]
-    x <- grep(x, plotsums$species, fixed=TRUE)
+    
+    # grep returns index of matches (similar to match but returns all indexes, not just the first)
+    
+    x <- grep(x, plotsums$species, fixed=TRUE) 
     x <- plotsums[x,]
     x <- merge(x, trait, by.x = "species", by.y = "species")
     
+    # iteratively add things to dataframe y!
     y <- rbind(y,x)
     
   }
@@ -25,13 +29,15 @@ findtraitvals <- function(plotsums, trait) {
 }
 
 
+# relabund finds relative % cover for each species at each site
+
 relabund <- function(df) {
                               
                 relcover <- df$speciescover / df$totalcover 
                 cbind(df, "relcover" = relcover)
 }
   
-
+# output data to txt file, in format that is usable by TGA script
 
 output <- function(df, trait) {
   
@@ -52,8 +58,29 @@ output <- function(df, trait) {
 
 }
 
+spread <- function(x) (diff(range(x)))
 
 
 
 
+
+# add columns to df
+
+function(df,columns,var) {
+  
+  for(i in 1:nrow(column)) {
+    
+    name <- names(column)[i]
+    
+    cbind(df, name$var)
+}
+}
+
+# compare
+
+compare <- function() {
+    
+  D_maxheight <- sprintf("%s_maxheight", dfname)
+
+}
 

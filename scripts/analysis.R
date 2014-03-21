@@ -82,9 +82,82 @@ output(WD.cover, WD)
 ## now run tga_alltraits.R script ##
 
 setwd("C:/Users/JLawson/Desktop/stuff/data/analysis/R/TGAall2")
+par(mfrow=c(1,1))
 source('scripts/tga_alltraits.R')
 
 # now load up the various outputs
 
 D_maxheight <- read.csv("output/maxheight.logt.W-TRUE/D.csv", header=TRUE)
 Sna_maxheight <-  read.csv("output/maxheight.logt.W-TRUE/Sna.csv", header=TRUE)
+T_maxheight <- read.csv("output/maxheight.logt.W-TRUE/T.csv", header=TRUE)
+
+D_seedmass <- read.csv("output/seedmass.logt.W-TRUE/D.csv", header=TRUE)
+Sna_seedmass <-  read.csv("output/seedmass.logt.W-TRUE/Sna.csv", header=TRUE)
+T_seedmass <- read.csv("output/seedmass.logt.W-TRUE/T.csv", header=TRUE)
+
+D_SLA <- read.csv("output/SLA.logt.W-TRUE/D.csv", header=TRUE)
+Sna_SLA <-  read.csv("output/SLA.logt.W-TRUE/Sna.csv", header=TRUE)
+T_SLA <- read.csv("output/SLA.logt.W-TRUE/T.csv", header=TRUE)
+
+D_WD <- read.csv("output/WD.sqrt.W-TRUE/D.csv", header=TRUE)
+Sna_WD <-  read.csv("output/WD.sqrt.W-TRUE/Sna.csv", header=TRUE)
+T_WD <- read.csv("output/WD.sqrt.W-TRUE/T.csv", header=TRUE)
+
+# merge Sna data with hydro data
+
+hydro <- read.csv("data/hydronorm.csv", header=TRUE)
+hydro$plot <- hydro$plotID
+hydro$plotID <- NULL
+
+  D_Sna_maxheight <- merge(D_maxheight, Sna_maxheight)
+  D_Sna_hydro_maxheight <- merge(D_Sna_maxheight, hydro)
+  
+  D_Sna_seedmass <- merge(D_seedmass, Sna_seedmass)
+  D_Sna_hydro_seedmass <- merge(D_Sna_seedmass, hydro)
+  
+  D_Sna_SLA <- merge(D_SLA, Sna_SLA)
+  D_Sna_hydro_SLA <- merge(D_Sna_SLA, hydro)
+  
+  D_Sna_WD <- merge(D_WD, Sna_WD)
+  D_Sna_hydro_WD <- merge(D_Sna_WD, hydro)
+
+# make lists with all the betaT and alphaT values
+
+betaT <- list()
+betaT$betaT_maxheight <- D_Sna_hydro_maxheight$betaT
+betaT$betaT_seedmass <- D_Sna_hydro_seedmass$betaT
+betaT$betaT_SLA <- D_Sna_hydro_SLA$betaT
+betaT$betaT_WD <- D_Sna_hydro_WD$betaT
+
+alphaT <- list()
+alphaT$alphaT_maxheight <- D_Sna_hydro_maxheight$alphaT
+alphaT$alphaT_seedmass <- D_Sna_hydro_seedmass$alphaT
+alphaT$alphaT_SLA <- D_Sna_hydro_SLA$alphaT
+alphaT$alphaT_WD <- D_Sna_hydro_WD$alphaT
+  
+# get tp's (site means) and betaT.ranges
+
+hydroplots <- hydro
+
+hydroplots$Tp_maxheight <- unique(T_maxheight$tp)
+hydroplots$Tp_seedmass <- unique(T_seedmass$tp)
+hydroplots$Tp_SLA <- unique(T_SLA$tp)
+hydroplots$Tp_WD <- unique(T_WD$tp)
+
+tp <- data.frame(hydroplots$Tp_maxheight, 
+                 hydroplots$Tp_seedmass, 
+                 hydroplots$Tp_SLA, 
+                 hydroplots$Tp_WD)
+tp.cor <- cor(tp, method="pearson")
+
+hydroplots$betaTrange_maxheight <- tapply(D_Sna_hydro_maxheight$betaT, D_Sna_hydro_maxheight$plot, spread)
+hydroplots$betaTrange_seedmass <- tapply(D_Sna_hydro_seedmass$betaT, D_Sna_hydro_seedmass$plot, spread)
+hydroplots$betaTrange_SLA <- tapply(D_Sna_hydro_SLA$betaT, D_Sna_hydro_SLA$plot, spread)
+hydroplots$betaTrange_WD <- tapply(D_Sna_hydro_WD$betaT, D_Sna_hydro_WD$plot, spread)
+
+betaTrange <- data.frame(hydroplots$betaTrange_maxheight, 
+                         hydroplots$betaTrange_seedmass, 
+                         hydroplots$betaTrange_SLA,
+                         hydroplots$Tp_WD)
+
+betaTrange.cor <- cor(betaTrange, method="pearson")
