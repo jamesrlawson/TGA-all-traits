@@ -135,7 +135,7 @@ alphaT$alphaT_seedmass <- D_Sna_hydro_seedmass$alphaT
 alphaT$alphaT_SLA <- D_Sna_hydro_SLA$alphaT
 alphaT$alphaT_WD <- D_Sna_hydro_WD$alphaT
   
-# get tp's (site means) and betaT.ranges
+# get tp's (site means) and betaT.ranges, put them in hydroplots
 
 hydroplots <- hydro
 
@@ -179,14 +179,58 @@ alphaTrange.cor <- cor(alphaTrange, method="pearson")
 plot(alphaTrange)
 
 
-########### LETS OUTPUT SOME GRAPHS - BETAT and BETAT ranges along hydro gradients #############
+########### LETS OUTPUT SOME GRAPHS - stuff, along hydro gradients #############
 
 
 # plot.linear requires: df, var, trait, labels. 
 # var is alphaT/betaT/ts/Rs, etc.
 
-labels <- list("ylab" = c("abundance weighted mean wood density (g/cm^3)"),
-               "catname" = as.factor(c(3,2,2,3,3,2,1,1,1,1,2,2,3,1,3))
-              )
 
-plot.linear(D_Sna_hydro_SLA, D_Sna_hydro_SLA$betaT, SLA)
+
+plot.linear(D_Sna_hydro_maxheight, D_Sna_hydro_maxheight$ts, maxheight)
+plot.linear(D_Sna_hydro_seedmass, D_Sna_hydro_seedmass$ts, seedmass)
+plot.linear(D_Sna_hydro_SLA, D_Sna_hydro_SLA$ts, SLA)
+plot.linear(D_Sna_hydro_WD, D_Sna_hydro_WD$ts, WD)
+
+plot.quad(D_Sna_hydro_maxheight, D_Sna_hydro_maxheight$ts, maxheight)
+plot.quad(D_Sna_hydro_seedmass, D_Sna_hydro_seedmass$ts, seedmass)
+plot.quad(D_Sna_hydro_SLA, D_Sna_hydro_SLA$ts, SLA)
+plot.quad(D_Sna_hydro_WD, D_Sna_hydro_WD$ts, WD)
+
+plot.linear(hydroplots, hydroplots$betaTrange_WD, WD)
+plot.linear(hydroplots, hydroplots$betaTrange_SLA, SLA)
+plot.linear(hydroplots, hydroplots$betaTrange_seedmass, seedmass)
+plot.linear(hydroplots, hydroplots$betaTrange_maxheight, maxheight)
+
+plot.quad(hydroplots, hydroplots$betaTrange_WD, WD)
+plot.quad(hydroplots, hydroplots$betaTrange_SLA, SLA)
+plot.quad(hydroplots, hydroplots$betaTrange_seedmass, seedmass)
+plot.quad(hydroplots, hydroplots$betaTrange_maxheight, maxheight)
+
+plot.linear(hydroplots, hydroplots$alphaTrange_WD, WD)
+plot.linear(hydroplots, hydroplots$alphaTrange_SLA, SLA)
+plot.linear(hydroplots, hydroplots$alphaTrange_seedmass, seedmass)
+plot.linear(hydroplots, hydroplots$alphaTrange_maxheight, maxheight)
+
+plot.quad(hydroplots, hydroplots$alphaTrange_WD, WD)
+plot.quad(hydroplots, hydroplots$alphaTrange_SLA, SLA)
+plot.quad(hydroplots, hydroplots$alphaTrange_seedmass, seedmass)
+plot.quad(hydroplots, hydroplots$alphaTrange_maxheight, maxheight)
+
+plot.linear(hydroplots, hydroplots$Tp_WD, WD)
+plot.linear(hydroplots, hydroplots$Tp_SLA, SLA)
+plot.linear(hydroplots, hydroplots$Tp_seedmass, seedmass)
+plot.linear(hydroplots, hydroplots$Tp_maxheight, maxheight)
+
+plot.quad(hydroplots, hydroplots$Tp_WD, WD)
+plot.quad(hydroplots, hydroplots$Tp_SLA, SLA)
+plot.quad(hydroplots, hydroplots$Tp_seedmass, seedmass)
+plot.quad(hydroplots, hydroplots$Tp_maxheight, maxheight)
+
+## stuff to do:
+# fix plot.linear and plot.quadratic to output to the right directories using sprintf
+# have an option somewhere to only use data for which entries exist for all traits
+#   that way I can compare alphaT/betaT for traits directly, 
+#   and can then compare alphaT/betaT with alphaTrange/betaT range relationships between traits
+# have a think about whether range is the appropriate metric for dispersion 
+#   (because we're comparing different traits with different units)
