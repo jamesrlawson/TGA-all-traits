@@ -2,6 +2,7 @@ source("scripts/functions.R")
 source("scripts/tga1.R")
 options(stringsAsFactors = FALSE)
 library(plyr)
+library(ggplot2)
 
 #############################################################################################
 ############################# GET RELATIVE ABUNDANCES FOR ALL TRAITS ########################
@@ -62,6 +63,10 @@ maxheight.cover <- relabund(maxheight.cover)
 seedmass.cover <- relabund(seedmass.cover)
 SLA.cover <- relabund(SLA.cover)
 WD.cover <- relabund(WD.cover)
+
+test <- ddply(maxheight.cover, .(plotID), summarise, summedRelCover = (sum(relcover)))
+print(test)
+rm(test)
 
 # rejig for insertion into TGA script
 
@@ -124,16 +129,16 @@ hydro$plotID <- NULL
 # make lists with all the betaT and alphaT values (for the sheer hell of it)
 
 betaT.list <- list()
-betaT$betaT_maxheight <- D_Sna_hydro_maxheight$betaT
-betaT$betaT_seedmass <- D_Sna_hydro_seedmass$betaT
-betaT$betaT_SLA <- D_Sna_hydro_SLA$betaT
-betaT$betaT_WD <- D_Sna_hydro_WD$betaT
+betaT.list$betaT_maxheight <- D_Sna_hydro_maxheight$betaT
+betaT.list$betaT_seedmass <- D_Sna_hydro_seedmass$betaT
+betaT.list$betaT_SLA <- D_Sna_hydro_SLA$betaT
+betaT.list$betaT_WD <- D_Sna_hydro_WD$betaT
 
 alphaT.list <- list()
-alphaT$alphaT_maxheight <- D_Sna_hydro_maxheight$alphaT
-alphaT$alphaT_seedmass <- D_Sna_hydro_seedmass$alphaT
-alphaT$alphaT_SLA <- D_Sna_hydro_SLA$alphaT
-alphaT$alphaT_WD <- D_Sna_hydro_WD$alphaT
+alphaT.list$alphaT_maxheight <- D_Sna_hydro_maxheight$alphaT
+alphaT.list$alphaT_seedmass <- D_Sna_hydro_seedmass$alphaT
+alphaT.list$alphaT_SLA <- D_Sna_hydro_SLA$alphaT
+alphaT.list$alphaT_WD <- D_Sna_hydro_WD$alphaT
   
 # get tp's (site means) and betaT.ranges, put them in hydroplots
 
@@ -177,6 +182,13 @@ alphaTrange <- data.frame(hydroplots$alphaTrange_maxheight,
 
 alphaTrange.cor <- cor(alphaTrange, method="pearson")
 plot(alphaTrange)
+
+# add Rs to hydroplots values for comparison with betaTrange
+
+hydroplots$Rs_maxheight <- tapply(D_Sna_hydro_maxheight$Rs, D_Sna_hydro_maxheight$plot, mean)
+hydroplots$Rs_seedmass <- tapply(D_Sna_hydro_seedmass$Rs, D_Sna_hydro_seedmass$plot, mean)
+hydroplots$Rs_SLA <- tapply(D_Sna_hydro_SLA$Rs, D_Sna_hydro_SLA$plot, mean)
+hydroplots$Rs_WD <- tapply(D_Sna_hydro_WD$Rs, D_Sna_hydro_WD$plot, mean)
 
 
 ########### LETS OUTPUT SOME GRAPHS - stuff, along hydro gradients #############
@@ -234,3 +246,7 @@ plot.quad(hydroplots, hydroplots$Tp_maxheight, maxheight)
 #   and can then compare alphaT/betaT with alphaTrange/betaT range relationships between traits
 # have a think about whether range is the appropriate metric for dispersion 
 #   (because we're comparing different traits with different units)
+#
+# something to do with null models...
+#
+# something seems fishy with the WD Tp values. Why are the results not the same as the WDmeans values?

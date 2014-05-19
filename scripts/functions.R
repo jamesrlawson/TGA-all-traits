@@ -25,6 +25,8 @@ findtraitvals <- function(plotsums, trait) {
   }
   # subset by matches 
   #x <- plotsums[na.omit(x), ] 
+  
+    y <- ddply(y, .(plotID), unique)
     return(y)
 }
 
